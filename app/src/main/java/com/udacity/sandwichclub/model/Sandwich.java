@@ -38,6 +38,28 @@ public class Sandwich {
         return alsoKnownAs;
     }
 
+    public String getAlsoKnownAsAsString(){
+        String ingredientsAsString = "";
+        int size = this.alsoKnownAs.size();
+        if(size<1){
+            ingredientsAsString = "None";
+        }else if (size==1){
+            ingredientsAsString = "\""+this.alsoKnownAs.get(0)+"\".";
+        }else {
+            for(int i=0;i<size;i++){
+                ingredientsAsString += "\""+this.alsoKnownAs.get(i)+"\"";
+                if(i<size-2){
+                    ingredientsAsString += ", ";
+                }else if(i==size-2){
+                    ingredientsAsString += " or ";
+                }else{
+                    ingredientsAsString += "";
+                }
+            }
+        }
+        return ingredientsAsString;
+    }
+
     public void setAlsoKnownAs(List<String> alsoKnownAs) {
         this.alsoKnownAs = alsoKnownAs;
     }
@@ -68,6 +90,28 @@ public class Sandwich {
 
     public List<String> getIngredients() {
         return ingredients;
+    }
+
+    public String getIngredientsAsString(){
+        String ingredientsAsString = "";
+        int size = this.ingredients.size();
+        if(size<1){
+            ingredientsAsString = "Unknown ingredients";
+        }else if (size==1){
+            ingredientsAsString = this.ingredients.get(0)+".";
+        }else {
+            for(int i=0;i<size;i++){
+                ingredientsAsString += this.ingredients.get(i);
+                if(i<size-2){
+                    ingredientsAsString += ", ";
+                }else if(i==size-2){
+                    ingredientsAsString += " and ";
+                }else{
+                    ingredientsAsString += "";
+                }
+            }
+        }
+        return ingredientsAsString;
     }
 
     public void setIngredients(List<String> ingredients) {
